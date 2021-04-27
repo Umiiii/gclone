@@ -621,7 +621,8 @@ func (f *Fs) shouldRetry(err error) (bool, error) {
 			return true, err
 		}
 		if len(gerr.Errors) > 0 {
-			reason := gerr.Errors[0].Reason
+			//reason := gerr.Errors[0].Reason
+			fmt.Println("Error happened, try another sa files")
 			//if reason == "rateLimitExceeded" || reason == "userRateLimitExceeded" {
 				// 如果存在 ServiceAccountFilePath,调用 changeSvc, 重试
 				if(f.opt.ServiceAccountFilePath != ""){
